@@ -78,12 +78,6 @@
 			}
         }
         ,{
-            "path" : "pages/mine/class/class",
-            "style" : {
-				"navigationBarTitleText": "我的课程"
-			}
-        }
-        ,{
             "path" : "pages/mine/order/order",
             "style" : {
 				"navigationBarTitleText": "我的订单"
@@ -180,38 +174,6 @@
             "path" : "pages/mine/addZfb/addZfb",
             "style" : {
 				"navigationBarTitleText": "支付宝账号"
-			}
-        }
-        ,{
-            "path" : "pages/goods/fictityGood/fictityGood",
-            "style" : {
-            	"navigationBarTitleText": "商品详情"
-            }
-        }
-        ,{
-            "path" : "pages/goods/fictityGoodDetail/fictityGoodDetail",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/goods/fictityGoodZB/fictityGoodZB",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/officialAccount/goodsPay/goodsPay",
-            "style" : {
-				"navigationStyle": "custom"
-			}
-        }
-        ,{
-            "path" : "pages/car/commitOrder/commitOrderSel/commitOrderSel",
-            "style" : {
-				"navigationBarTitleText": "收银台"
-			}
-        }
-        ,{
-            "path" : "pages/officialAccount/guide/guide",
-            "style" : {
-				"navigationStyle": "custom"
 			}
         }
     ],

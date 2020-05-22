@@ -53,11 +53,10 @@
 						删除订单
 					</view>
 					<view class="o_botBtns" v-if="item.order_status==1" @click="toCancel(item.id)">取消订单</view>
-					<view class="o_botBtns o_botBtn_zf" v-if="item.order_status==1" @click="rePay(item.id,item.real_price,item.is_virtual_order)">去支付</view>
+					<view class="o_botBtns o_botBtn_zf" v-if="item.order_status==1" @click="rePay(item.id,item.real_price)">去支付</view>
 					<view class="o_botBtns" v-if="item.order_status==2" @click="toWarn">提醒发货</view>
-					<view class="o_botBtns" v-if="(item.order_status==3||item.order_status==4)&&item.is_virtual_order!=1" @click="toTrans(item.id)">物流信息</view>
+					<view class="o_botBtns" v-if="item.order_status==3||item.order_status==4" @click="toTrans(item.id)">物流信息</view>
 					<view class="o_botBtns" v-if="item.order_status==3" @click="toConfirm(item.id)">确认收货</view>
-					<view class="o_botBtns o_botBtn_zf" v-if="item.order_status==4&&item.is_virtual_order==1" @click="toFictityGood(item.mall_goods_order_detail_resps[0].goods_spu_id)">查看课程</view>
 				</view>
 			</view>
 
@@ -79,7 +78,6 @@
 	export default {
 		data() {
 			return {
-				phoneType:"android",//手机类型，，默认android, ios
 				cursor: 1,
 				size:10,
 				tabs: [{
@@ -112,8 +110,6 @@
 		},
 		onLoad(opt) {
 			// console.log("op",opt)
-			this.phoneType=uni.getSystemInfoSync().platform
-			console.log("phoneType",this.phoneType)
 			this.selTab = opt.tabs || 0
 			this.initData()
 			//注册事件
@@ -124,23 +120,8 @@
 			uni.$off('refresh');
 		},
 		methods: {
-			//查看课程
-			toFictityGood(id){
-				uni.navigateTo({
-					url: '/pages/goods/fictityGood/fictityGood?id='+id
-				})
-			},
 			//重新支付
-			rePay(id,real_price,is_virtual_order){
-				//is_virtual_order = 1为虚拟订单，并且如果是ios，就跳转
-				if(is_virtual_order&&this.phoneType=="ios"){//&&this.phoneType=="ios"
-				   let  order_info_ids = id
-				   console.log("跳转")
-				   uni.navigateTo({
-						url:"/pages/car/commitOrder/commitOrderSel/commitOrderSel?order_info_ids="+order_info_ids
-					})
-					return 		
-				}
+			rePay(id,real_price){
 				let order_nos = [id]
 				let open_id = uni.getStorageSync("open_id")
 				console.log("order",order_nos)

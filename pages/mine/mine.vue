@@ -94,7 +94,6 @@
 			</view>
 			<!-- other -->
 			<view class="mBot_other">
-				<view class="mBot_otherItem" @click="toClass">我的课程</view>
 				<view class="mBot_otherItem" @click="toAddress">地址管理</view>
 				<view class="mBot_otherItem" @click="toCoupon">优惠券</view>
 				<view class="mBot_otherItem flex_be"  @click="toTeam">
@@ -246,13 +245,6 @@
 					 url: 'account/account'
 				 });
 			 },
-			 //我的课程
-			 toClass(){
-				 if(!this.selfInfo)return this.$tips.toast("请先登陆");
-				 uni.navigateTo({
-					 url: './class/class'
-				 });
-			 },
 			 //地址管理
 			 toAddress(){
 				 if(!this.selfInfo)return this.$tips.toast("请先登陆");
@@ -384,14 +376,14 @@
 			}
 		},
 		onLoad(){
-		
-		},
-		onShow(){ 
-			let token = uni.getStorageSync("token");
+			let that = this
+			let token = uni.getStorageSync("token"); 
 			if (token) {
 				this.selfInfo=true
 				this.authToken =token;
 			}
+		},
+		onShow(){ 
 			console.log("this.selfInfo",this.selfInfo)
 			if(!this.selfInfo){
 				 this.$tips.modal("请先登录")

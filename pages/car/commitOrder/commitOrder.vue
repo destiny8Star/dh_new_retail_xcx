@@ -1,6 +1,6 @@
 <template>
 	<view style="padding-bottom: 120rpx;">
-		<view class="co_topBox" v-if="!has_virtual">
+		<view class="co_topBox">
 			<view class="co_top flex" @click="toAdd(infos.address_info&&infos.address_info.id)">
 				<view class="co_topL" v-if="infos.address_info">
 					<view class="co_topL_top">
@@ -109,8 +109,7 @@
 	export default {
 		data() {
 			return {
-				phoneType:"android",//手机类型，，默认android
-				has_virtual:true,//是否是虚拟商品
+				// hasAdd:false,//是否有地址
 				infos:{},//所有订单信息
 				visible:false,
 				coupons:[],//卡券数组,渲染用
@@ -135,7 +134,6 @@
 					console.log("订单信息",res,this.address_id,this.buyer_messages)
 					this.$tips.loaded()
 					this.infos = res.data
-					this.has_virtual = res.data.order_check.has_virtual
 					this.address_id = res.data.address_info&&res.data.address_info.id
 					//当有失效商品时,弹框提示并返回
 					if(res.data.unavailable_goods){
@@ -188,18 +186,8 @@
 						    let datas = res.data.create_order_resp
 							let order_nos = res.data.order_nos
 							uni.setStorageSync("order_nos",order_nos)
-						   
-						   //如果是虚拟商品，并且是ios手机,就跳公众号支付
-						   if(this.has_virtual&&this.phoneType=="ios"){//&&this.phoneType=="ios"
-							   let  order_info_ids = res.data.order_nos
-							   console.log("跳转")
-							   uni.redirectTo({
-									url:"/pages/car/commitOrder/commitOrderSel/commitOrderSel?order_info_ids="+order_info_ids
-								})
-							    return 		
-						   }else{
-							 return  this.$cObj.payMent(datas.time_stamp,datas.nonce_str,datas.wx_package,datas.pay_sign)
-						   }
+						
+						   return  this.$cObj.payMent(datas.time_stamp,datas.nonce_str,datas.wx_package,datas.pay_sign)
 						}else{
 						   return Promise.reject(res)
 						   // this.$tips.toast(res.data.create_order_resp.msg)
@@ -207,12 +195,9 @@
 					})
 					.then(res=>{
 						console.log("支付结果",res,money)
-						if(res){
-							uni.reLaunch({
-								url:"/pages/car/payRes/payRes?money="+money+"&&status=success"
-							})
-						}
-					
+						uni.reLaunch({
+							url:"/pages/car/payRes/payRes?money="+money+"&&status=success"
+						})
 					})
 					.catch(rej=>{
 						console.log("支付结果失败",rej,money)
@@ -281,9 +266,8 @@
 			}
 		},
 		onLoad(){
-			this.phoneType=uni.getSystemInfoSync().platform
-			console.log("phoneType",this.phoneType)
 			let that = this
+		
 			uni.$on('address',function(data){
 				this.address_id = data.address_id
 				let arrCoup = uni.getStorageSync( 'arrCoup')||[];

@@ -105,12 +105,8 @@
 			},
 			// 选中  跳转商品详情页
 			choose(data) {
-				console.log("点击",data);
-				if(data.goods_type==2){
-					uni.navigateTo({url: '/pages/goods/fictityGood/fictityGood?id=' + data.id});
-				}else{
-					uni.navigateTo({url: '/pages/goods/goods?id=' + data.id});
-				}
+				console.log(data);
+				uni.navigateTo({url: '/pages/goods/goods?id=' + data.id});
 				// let index = e.currentTarget.dataset.index;
 				// this.$emit('click', this.newList[index]);
 			},

@@ -11,7 +11,7 @@
 		</view>
 		<view class="ord_bot">
 			<!-- 地址 -->
-			<view class="ad_box" v-if="data.is_virtual_order!=1">
+			<view class="ad_box">
 				<view class="ad_boxL_top flex">
 					<view class="ad_boxL_topName">{{data.consignee}}</view>
 					<view>{{data.consignee_tel}}</view>
@@ -76,13 +76,12 @@
 				</view>
 				
 				<view class="o_botBtn flex">
-					<view class="o_botBtns" @click="toTrans(data.id)"  v-if="(data.order_status==3||data.order_status==4)&&data.is_virtual_order!=1">物流信息</view>
+					<view class="o_botBtns" @click="toTrans(data.id)"  v-if="data.order_status==3||data.order_status==4">物流信息</view>
 					<view class="o_botBtns" v-if="data.order_status==4||data.order_status==6" @click="toDel(data.id)">删除订单</view>
 					<view class="o_botBtns"  v-if="data.order_status==1" @click="toCancel(data.id)">取消订单</view>
-					<view class="o_botBtns o_botBtn_zf"  v-if="data.order_status==1" @click="rePay(data.id,data.real_price,data.is_virtual_order)">去支付</view>
+					<view class="o_botBtns o_botBtn_zf"  v-if="data.order_status==1" @click="rePay(data.id,data.real_price)">去支付</view>
 					<view class="o_botBtns"  v-if="data.order_status==2" @click="toWarn">提醒发货</view>
 					<view class="o_botBtns" v-if="data.order_status==3" @click="toConfirm(data.id)">确认收货</view>
-					<view class="o_botBtns o_botBtn_zf" v-if="data.order_status==4&&data.is_virtual_order==1" @click="toFictityGood()">查看课程</view>
 				</view>
 			</view>
 			
@@ -96,12 +95,9 @@
 		data() {
 			return {
 				data:"",
-				phoneType:"android",//手机类型，，默认android, ios
 			};
 		},
 		onLoad(option){
-			this.phoneType=uni.getSystemInfoSync().platform
-			console.log("phoneType",this.phoneType)
 			let id = option.id
 			console.log("id",id)
 			this.$tips.loading()
@@ -120,24 +116,8 @@
 			})
 		},
 		methods:{
-			//查看课程
-			toFictityGood(){
-				let id = this.data.mall_goods_child_order_info_resp[0].goods_spu_id
-				uni.navigateTo({
-					url: '/pages/goods/fictityGood/fictityGood?id='+id
-				})
-			},
 			//重新支付
-			rePay(id,real_price,is_virtual_order){
-				//is_virtual_order = 1为虚拟订单，并且如果是ios，就跳转
-				if(is_virtual_order&&this.phoneType=="ios"){//&&this.phoneType=="ios"
-				   let  order_info_ids = id
-				   console.log("跳转")
-				   uni.navigateTo({
-						url:"/pages/car/commitOrder/commitOrderSel/commitOrderSel?order_info_ids="+order_info_ids
-					})
-					return 		
-				}
+			rePay(id,real_price){
 				let order_nos = [id]
 				console.log("order",order_nos)
 				let open_id = uni.getStorageSync("open_id")
@@ -261,16 +241,9 @@
 			//去商品详情
 			toGoods(id){
 				console.log("id",id)
-                if(this.data.is_virtual_order==1){//虚拟商品订单
-					uni.navigateTo({
-						url: '/pages/goods/fictityGood/fictityGood?id='+id
-					})
-				}else{
-					uni.navigateTo({
-						url:"/pages/goods/goods?id="+id
-					})
-				}
-			
+				uni.navigateTo({
+					url:"/pages/goods/goods?id="+id
+				})
 			},
 			//去商店
 			toShop(id){
