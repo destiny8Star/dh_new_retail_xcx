@@ -1,0 +1,269 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "汇拾货",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor":"#F22B2B"
+			}
+		},
+		{
+			"path": "pages/classify/classify",
+			"style": {
+				"navigationBarTitleText": "商品分类"
+			}
+		},
+		{
+			"path": "pages/car/car",
+			"style": {
+				"navigationBarTitleText": "购物车",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor":"#F22B2B"
+			}
+		}
+        ,{
+            "path" : "pages/mine/account/account",
+            "style" : {
+				"navigationBarTitleText": "账户金额"
+			}
+        }
+        ,{
+            "path" : "pages/mine/withdrawal/withdrawal",
+            "style" : {
+				"navigationBarTitleText": "提现"
+			}
+        }
+        ,{
+            "path" : "pages/mine/txDetail/txDetail",
+            "style" : {
+				"navigationBarTitleText": "提现明细"
+			}
+        }
+        ,{
+            "path" : "pages/mine/fyDetail/fyDetail",
+            "style" : {
+				"navigationBarTitleText": "分佣明细"
+			}
+        }
+        ,{
+            "path" : "pages/mine/addressMan/addressMan",
+            "style" : {
+				"navigationBarTitleText": "地址管理"
+			}
+        }
+        ,{
+            "path" : "pages/mine/addressAdd/addressAdd",
+            "style" : {
+				"navigationBarTitleText": "地址添加 "
+			}
+        }
+        ,{
+            "path" : "pages/mine/coupon/coupon",
+            "style" : {
+				"navigationBarTitleText": "优惠券"
+			}
+        }
+        ,{
+            "path" : "pages/mine/team/team",
+            "style" : {
+				"navigationBarTitleText": "我的团队"
+			}
+        }
+        ,{
+            "path" : "pages/mine/class/class",
+            "style" : {
+				"navigationBarTitleText": "我的课程"
+			}
+        }
+        ,{
+            "path" : "pages/mine/order/order",
+            "style" : {
+				"navigationBarTitleText": "我的订单"
+			}
+        }
+        ,{
+            "path" : "pages/index/search/search",
+            "style" : {
+				"navigationBarTitleText": "搜索商品"
+			}
+        }
+        ,{
+            "path" : "pages/index/search/searchResult",
+            "style" : {
+				"navigationBarTitleText": "搜索商品"
+			}
+        }
+        ,{
+            "path" : "pages/mine/orderDetail/orderDetail",
+            "style" : {
+				"navigationBarTitleText": "订单详情"
+			}
+        }
+        ,{
+            "path" : "pages/mine/orderTrans/orderTrans",
+            "style" : {
+				"navigationBarTitleText": "物流信息"
+			}
+        }
+        ,{
+            "path" : "pages/car/useCoupon/useCoupon",
+            "style" : {
+				"navigationBarTitleText": "选择优惠"
+			}
+        }
+        ,{
+            "path" : "pages/car/selAdd/selAdd",
+            "style" : {
+				"navigationBarTitleText": "选择地址"
+			}
+        }
+        ,{
+            "path" : "pages/car/payRes/payRes",
+            "style" : {
+				"navigationBarTitleText": "支付结果"
+			}
+        }
+        ,{
+            "path" : "pages/car/commitOrder/commitOrder",
+            "style" : {
+				"navigationBarTitleText": "提交订单"
+				}
+		}
+		,{
+            "path" : "pages/goods/goods",
+            "style" : {
+				"navigationBarTitleText": "商品详情"
+			}
+        }
+        ,{
+            "path" : "pages/shop/shop",
+            "style" : {
+				"navigationBarTitleText": "店铺"
+			}
+        }
+        ,{
+            "path" : "pages/index/activityGoodsList/goodsList",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/mine/transport/transport",
+            "style" : {
+				"navigationBarTitleText": "物流信息"
+			}
+        }
+        ,{
+            "path" : "components/goods/goods-list",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/mine/useCoupon/useCoupon",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/livePlay/livePlay",
+            "style" : {
+				"navigationBarTitleText": "直播",
+				"enablePullDownRefresh": true,
+				"navigationBarTextStyle":"white",
+				"navigationBarBackgroundColor":"#F22B2B"
+			}
+        }
+        ,{
+            "path" : "pages/mine/addZfb/addZfb",
+            "style" : {
+				"navigationBarTitleText": "支付宝账号"
+			}
+        }
+        ,{
+            "path" : "pages/goods/fictityGood/fictityGood",
+            "style" : {
+            	"navigationBarTitleText": "商品详情"
+            }
+        }
+        ,{
+            "path" : "pages/goods/fictityGoodDetail/fictityGoodDetail",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/goods/fictityGoodZB/fictityGoodZB",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/officialAccount/goodsPay/goodsPay",
+            "style" : {
+				"navigationStyle": "custom"
+			}
+        }
+        ,{
+            "path" : "pages/car/commitOrder/commitOrderSel/commitOrderSel",
+            "style" : {
+				"navigationBarTitleText": "收银台"
+			}
+        }
+        ,{
+            "path" : "pages/officialAccount/guide/guide",
+            "style" : {
+				"navigationStyle": "custom"
+			}
+        }
+    ],
+	"tabBar": {
+	    "color": "#161F2F",
+	    "selectedColor": "#F22B2B",
+	    "borderStyle": "black",
+	    "backgroundColor": "#fff",
+	    "list": [
+		{
+	        "pagePath": "pages/index/index",
+			"iconPath": "static/image/tabBar/home@2x.png",
+			"selectedIconPath": "static/image/tabBar/home_sel@2x.png",
+	        "text": "首页"
+	    }, 
+		{
+	        "pagePath": "pages/classify/classify",
+			"iconPath": "static/image/tabBar/classify@2x.png",
+			"selectedIconPath": "static/image/tabBar/classify_sel@2x.png",
+	        "text": "分类"
+	    },
+		// #ifdef  MP-WEIXIN
+		{
+		    "pagePath": "pages/livePlay/livePlay",
+			"iconPath": "static/image/tabBar/live.png",
+			"selectedIconPath": "static/image/tabBar/live_sel.png",
+		    "text": "直播"
+		},
+		// #endif
+		{
+	        "pagePath": "pages/car/car",
+			"iconPath": "static/image/tabBar/car@2x.png",
+			"selectedIconPath": "static/image/tabBar/car_sel@2x.png",
+	        "text": "购物车"
+	    }, 
+		{
+	        "pagePath": "pages/mine/mine",
+			"iconPath": "static/image/tabBar/mine@2x.png",
+			"selectedIconPath": "static/image/tabBar/mine_sel@2x.png",
+	        "text": "我的"
+	    }]
+	},
+	"globalStyle": {
+		//支付宝小程序特有相关
+		// "mp-alipay": {
+		// 	"transparentTitle": "always",//头部透明
+		// 	"allowsBounceVertical": "NO",
+		// 	"titlePenetrate": "YES"//导航栏点击穿透
+		// },
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "汇拾货",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#F8F8F8"
+	}
+}
